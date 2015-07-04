@@ -128,13 +128,18 @@
     <Compile Include="Models\PersonModel.cs" />
     <Compile Include="Models\PostModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Implementation\MongoPersonRepository.cs" />
+<<<<<<< HEAD
+    <Compile Include="Services\Implementation\PostMemoryRepository.cs" />
     <Compile Include="Services\Implementation\CommentMemoryRepository.cs" />
     <Compile Include="Services\Implementation\PersonInMemoryRepository.cs" />
-    <Compile Include="Services\IRepository.cs" />
     <Compile Include="Services\ICommentRepository.cs" />
     <Compile Include="Services\IPostRepository .cs" />
     <Compile Include="Services\IPersonRepository.cs" />
+=======
+    <Compile Include="Services\Implementation\MongoPersonRepository.cs" />
+    <Compile Include="Services\Implementation\PersonInMemoryRepository.cs" />
+    <Compile Include="Services\IRepository.cs" />
+>>>>>>> e39a9223734489f606f49b655ed2c6b5adffacc2
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
