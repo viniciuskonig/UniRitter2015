@@ -7,19 +7,19 @@ using UniRitter.UniRitter2015.Models;
 
 namespace UniRitter.UniRitter2015.Services.Implementation
 {
-    public class MongoPersonRepository : IRepository<PersonModel>
+    public class MongoPostRepository : IRepository<PostModel>
     {
         private IMongoDatabase database;
-        private IMongoCollection<PersonModel> collection;
+        private IMongoCollection<PostModel> collection;
 
-        public MongoPersonRepository()
+        public MongoPostRepository()
         {
             var client = new MongoClient("mongodb://localhost");
             database = client.GetDatabase("uniritter");
-            collection = database.GetCollection<PersonModel>("person");
+            collection = database.GetCollection<PostModel>("post");
         }
 
-        public PersonModel Add(PersonModel model)
+        public PostModel Add(PostModel model)
         {
             model.id = Guid.NewGuid();
             collection.InsertOneAsync(model).Wait();
@@ -34,21 +34,22 @@ namespace UniRitter.UniRitter2015.Services.Implementation
             return result.DeletedCount > 0;
         }
 
-        public PersonModel Update(Guid id, PersonModel model)
+        public PostModel Update(Guid id, PostModel model)
         {
             collection.ReplaceOneAsync(p => p.id == id, model).Wait();
 
             return model;
         }
 
-        public IEnumerable<PersonModel> GetAll()
+
+        public IEnumerable<PostModel> GetAll()
         {
             var data = collection.Find(
-                p => true).ToListAsync<PersonModel>();
+                p => true).ToListAsync<PostModel>();
             return data.Result;
         }
 
-        public PersonModel GetById(Guid id)
+        public PostModel GetById(Guid id)
         {
             var data = collection.Find(
                 p => p.id == id).FirstOrDefaultAsync();

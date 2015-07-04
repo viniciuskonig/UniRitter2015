@@ -11,9 +11,9 @@ namespace UniRitter.UniRitter2015.Controllers
 {
     public class PostController : ApiController
     {
-        private IPostRepository _repo;
+        private IRepository<PostModel> _repo;
 
-        public PostController(IPostRepository repo)
+        public PostController(IRepository<PostModel> repo)
         {
             this._repo = repo;
         }

@@ -11,9 +11,9 @@ namespace UniRitter.UniRitter2015.Controllers
 {
     public class CommentController : ApiController
     {
-        private ICommentRepository _repo;
+        private IRepository<CommentModel> _repo;
 
-        public CommentController(ICommentRepository repo)
+        public CommentController(IRepository<CommentModel> repo)
         {
             this._repo = repo;
         }
