@@ -1,22 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 namespace UniRitter.UniRitter2015.Models
 {
-    public class PostModel
+    public class PostModel : IModel
     {
         public Guid? id { get; set; }
 
+        [Required]
         [MaxLength(4000)]
-        [Required]
-        public string body {get;set;}
+        public string body { get; set; }
 
+        [Required]
         [MaxLength(100)]
-        [Required]
-        public string title {get;set;}
-        
-        public PersonModel author {get;set;}
+        public string title { get; set; }
 
-        public string[] tags {get; set;}
+        public Guid authorId { get; set; }
+
+        public IEnumerable<string> tags { get; set; }
 
     }
 }

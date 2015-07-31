@@ -1,19 +1,16 @@
-<<<<<<< HEAD
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-
-namespace UniRitter.UniRitter2015.Models
+<<<<<<< HEAD
 =======
-﻿namespace UniRitter.UniRitter2015.Models
->>>>>>> 092c5a607f9abc539260bb374deee0650a740538
+using System.Collections.Generic;
+>>>>>>> 12e6a17abf75cece11badbb214b589df0de9e26e
+using System.ComponentModel.DataAnnotations;
+namespace UniRitter.UniRitter2015.Models
 {
-    public class CommentModel
+    public class CommentModel : IModel
     {
         public Guid? id { get; set; }
 
+<<<<<<< HEAD
         [MaxLength(1000)]
         [Required]
         public string body { get; set; }
@@ -24,5 +21,16 @@ namespace UniRitter.UniRitter2015.Models
 
         public PersonModel author { get; set; }
 
+=======
+        [Required]
+        [MaxLength(4000)]
+        public string body { get; set; }
+
+        [Required]
+        [MaxLength(100)]
+        public string title { get; set; }
+
+        public Guid authorId { get; set; }
+>>>>>>> 12e6a17abf75cece11badbb214b589df0de9e26e
     }
 }

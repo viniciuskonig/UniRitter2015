@@ -21,7 +21,8 @@ Background:
 	Scenario Outline: Get a specific person entry
 	Given the populated API
 	When I GET from the /people/<id> API endpoint
-	Then the data matches that id
+	Then I receive a success (code 200) return message
+	And the data matches that id
 	Examples:
 	| id									|
 	| 8d0d477f-1378-4fc1-bb47-29eb3ea959e1	|
@@ -46,9 +47,9 @@ Background:
 	Then I receive an error (code 400) return message
 	And I receive a message that conforms <messageRegex>
 	Examples:
-	| case              | data																			| messageRegex	|
-	| missing firstName	| {"LastName":"de Tal","Email":"fulano@email.com","Url":"http://fulano.com.br"} | .*firstName.*	|
-	Given an existing person resource
+	| case              | data																						| messageRegex	|
+	| missing firstName	| {"LastName":"de Tal","Email":"fulano@email.com","Url":"http://fulano.com.br"}				| .*firstName.*	|
+	| invalid email		| {"LastName":"de Tal","FirstName":"fulano", "Email":"fulano","Url":"http://fulano.com.br"} | .*email.*		|
 	And a valid update message to that resource
 	When I run a PUT command against the /people endpoint
 	Then I receive a success (code 200) status message
