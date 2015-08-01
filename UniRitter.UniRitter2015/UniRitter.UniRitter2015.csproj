@@ -150,7 +150,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Implementation\InMemoryRepository.cs" />
-    <Compile Include="Services\Implementation\MongoPostRepository.cs" />
     <Compile Include="Services\IRepository.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Support\IApiConfig.cs" />
